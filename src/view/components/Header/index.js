@@ -1,16 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
-import {YoutubeLogo} from "../../svg";
+import {MenuButtonSvg, YoutubeLogo} from "../../svg";
 import SearchBox from "../SearchBox/SearchBox";
 import Nav from "./Nav";
+import GlobalButton from "../../../styled/Button.Styled";
 
 const Header = () => {
 
-    return(
+    return (
         <Container>
-            <Logo>
-                <YoutubeLogo/>
-            </Logo>
+            <div>
+                <MenuButton>
+                    <MenuButtonSvg/>
+                </MenuButton>
+                <Logo>
+                    <YoutubeLogo/>
+                </Logo>
+            </div>
             <SearchBox/>
             <Nav/>
         </Container>
@@ -18,18 +24,35 @@ const Header = () => {
 }
 
 const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
   height: 60px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  
+  div{
+    display: flex;
+    align-items: center;
+  }
 `;
 
 const Logo = styled.div`
   cursor: pointer;
-    svg{
-      width: 85px;
-    }
+
+  svg {
+    width: 85px;
+  }
 `;
+
+const MenuButton = styled(GlobalButton)`
+  margin-right: 20px;
+
+  svg {
+    width: 24px;
+    fill: #666;
+  }
+`;
+
 
 export default Header;

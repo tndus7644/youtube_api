@@ -7,7 +7,7 @@ export const GlobalButton = styled.button`
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
-  font-weight: bold;
+  font-weight: normal;
   text-align: center;
   white-space: nowrap;
   background: none;
@@ -15,6 +15,10 @@ export const GlobalButton = styled.button`
   
   &:focus{
     outline: 0;
+  }
+  
+  svg{
+    width: 25px;
   }
 `;
 

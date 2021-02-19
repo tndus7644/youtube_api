@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {DotMenuSvg, MenuButtonSvg} from "../../svg";
+import {DotMenuSvg, ServiceButtonSvg} from "../../svg";
 import GlobalButton from "../../../styled/Button.Styled";
 
 const Nav = () => {
@@ -9,7 +9,7 @@ const Nav = () => {
         <Container>
             <ButtonGroup>
                 <Button>
-                    <MenuButtonSvg/>
+                    <ServiceButtonSvg/>
                 </Button>
                 <Button>
                     <DotMenuSvg/>

@@ -1,7 +1,7 @@
-import {bindActionCreators} from 'redux';
+import {bindActionCreators} from 'redux'
 import store from "./store";
 
-import {Action as videoAction} from './Video/redux';
+import {Action as videoAction} from './Video/redux'
 
 const {dispatch} = store;
 

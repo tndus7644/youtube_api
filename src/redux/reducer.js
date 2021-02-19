@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux';
 
-import videoReducer from './Video/redux'
+import videoReducer from './Video/redux';
 
-const reducer = combineReducers({
+const reducers = combineReducers({
     video: videoReducer
-})
+});
 
-export default reducer;
+export default reducers;
