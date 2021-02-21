@@ -10,7 +10,7 @@ const HomeContainer = () => {
     const singleVideo = () => {
         videoActions.getVideo({
             maxResults: 15,
-            chart: 'mostPopular'
+            chart:'mostPopular'
         })
     }
 
@@ -33,9 +33,8 @@ const HomeContainer = () => {
 
 const Container = styled.div`
   background: #f9f9f9;
-  height: 2000px;
+  display: flex;
 `;
-
 
 
 export default HomeContainer;

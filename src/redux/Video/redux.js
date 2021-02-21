@@ -1,6 +1,6 @@
 import {createActions, createReducer} from "reduxsauce";
 
-const initialState = {
+const initialState = {　　
     video: {
         items:[]
     }
@@ -10,7 +10,7 @@ export const Action = createActions({
     updateState: ['props'],
     getVideo:['data']
 }, {
-    prefix: 'PHOTO/'
+    prefix: 'VIDEO/'
 });
 
 export default createReducer(initialState,{

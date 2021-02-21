@@ -7,41 +7,41 @@ const Sidebar = () => {
 
     return (
         <Container>
-            <Button>
-                <HomeSvg/>
-                <p>홈</p>
-            </Button>
-            <Button>
-                <FireSvg/>
-                <p>인기</p>
-            </Button>
-            <Button>
-                <SubscribeSvg/>
-                <p>구독</p>
-            </Button>
-            <Button>
-                <StorageSvg/>
-                <p>보관함</p>
-            </Button>
-            <Button>
-                <HistorySvg/>
-                <p>시청 기록</p>
-            </Button>
+                <Button>
+                    <HomeSvg/>
+                    <p>홈</p>
+                </Button>
+                <Button>
+                    <FireSvg/>
+                    <p>인기</p>
+                </Button>
+                <Button>
+                    <SubscribeSvg/>
+                    <p>구독</p>
+                </Button>
+                <Button>
+                    <StorageSvg/>
+                    <p>보관함</p>
+                </Button>
+                <Button>
+                    <HistorySvg/>
+                    <p>시청 기록</p>
+                </Button>
         </Container>
     )
 }
 
 const Container = styled.div`
-  position: fixed;
-  top: 0;
+  position: sticky;
+  top: 60px;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: #fff;
-  width: 72px;
+  z-index: 50;
   display: flex;
   flex-direction: column;
-  padding-top: 60px;
+  align-items: center;
+  width: 220px;
+  height: 100vh;
+  background: #fff;
 `;
 
 const Button = styled(GlobalButton)`

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import YouTube from "react-youtube";
 
 const VideoContent = (props) => {
 
@@ -27,16 +26,19 @@ const VideoContent = (props) => {
 }
 
 const Container = styled.div`
-  margin: 0 10px 10px;
+  margin: 0 7px;
 `;
 
 const Video = styled.div`
-
+  iframe{
+    width: 347px;
+    height: 194px;
+  }
 `;
 
 const Info = styled.div`
   width: 308px;
-  height: 95px;
+  height: 110px;
   padding-top: 10px;
 `;
 
@@ -45,12 +47,14 @@ const Des = styled.div`
   h3 {
     line-height: 1.3;
     font-weight: 600;
+    cursor: pointer;
   }
 
   p {
     font-size: 14px;
     color: #666;
     line-height: 1.8;
+    cursor: pointer;
   }
 `;
 

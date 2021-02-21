@@ -4,6 +4,7 @@ import {MenuButtonSvg, YoutubeLogo} from "../../svg";
 import SearchBox from "../SearchBox/SearchBox";
 import Nav from "./Nav";
 import GlobalButton from "../../../styled/Button.Styled";
+import {navigate} from "../../../lib/History";
 
 const Header = () => {
 
@@ -13,7 +14,7 @@ const Header = () => {
                 <MenuButton>
                     <MenuButtonSvg/>
                 </MenuButton>
-                <Logo>
+                <Logo onClick={() => navigate("/")}>
                     <YoutubeLogo/>
                 </Logo>
             </div>

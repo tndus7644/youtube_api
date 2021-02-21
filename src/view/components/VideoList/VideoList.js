@@ -15,8 +15,9 @@ const VideoList = ({video}) => {
 
 const Container = styled.div`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  padding: 20px 20px 20px 100px;
+  margin: 24px auto;
 `;
 
 
