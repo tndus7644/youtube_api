@@ -39,7 +39,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 220px;
+  width: 75px;
   height: 100vh;
   background: #fff;
 `;

@@ -4,13 +4,13 @@ import {API} from "../../api";
 
 const saga = function* () {
     yield all([
-        takeLatest(Action.Types.GET_VIDEO, function* ({data}) {
+        takeLatest(Action.Types.CHANNEL_LIST, function* ({data}) {
             try{
-                const result = yield call(API.getVideo, data)
-                console.log("[saga getVideo]", result.data)
+                const result = yield call(API.channelList, data)
+                console.log("[saga channelList]", result.data)
                 if (result.data) {
                     yield put(Action.Creators.updateState({
-                        video: result.data
+                        channel: result.data
                     }))
                 }
             }catch (e){

@@ -30,7 +30,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #fff;
+  background: rgba(255,255,255,0.98);
   
   div{
     display: flex;

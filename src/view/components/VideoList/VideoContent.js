@@ -1,5 +1,6 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import styled from 'styled-components';
+import {channelActions} from "../../../redux/ActionCreators";
 
 const VideoContent = (props) => {
 
@@ -9,6 +10,19 @@ const VideoContent = (props) => {
     } = props
 
     const VideoSrc = `https://www.youtube.com/embed/${id}`
+
+    const channelId = snippet.channelId
+
+    const channel = () => {
+        channelActions.channelList({
+            id: channelId,
+            maxResults:15
+        })
+    }
+
+    useEffect(() => {
+        channel();
+    },[])
 
     return (
         <Container>

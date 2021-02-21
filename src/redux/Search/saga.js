@@ -4,13 +4,13 @@ import {API} from "../../api";
 
 const saga = function* () {
     yield all([
-        takeLatest(Action.Types.GET_VIDEO, function* ({data}) {
+        takeLatest(Action.Types.SEARCH_VIDEO, function* ({data}) {
             try{
-                const result = yield call(API.getVideo, data)
-                console.log("[saga getVideo]", result.data)
+                const result = yield call(API.searchVideo, data)
+                console.log("[saga searchVideo]", result.data)
                 if (result.data) {
                     yield put(Action.Creators.updateState({
-                        video: result.data
+                        searchResults: result.data
                     }))
                 }
             }catch (e){

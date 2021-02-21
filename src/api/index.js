@@ -3,6 +3,12 @@ import axios from 'axios'
 export const API = {
     getVideo:(data) => youTubeApiInstance.get('/videos',{
         params: data
+    }),
+    searchVideo:(data) => youTubeApiInstance.get('/search', {
+        params: data
+    }),
+    channelList:(data) => youTubeApiInstance.get('/channels', {
+        params: data
     })
 }
 
@@ -11,6 +17,6 @@ export const youTubeApiInstance = axios.create({
     timeout:6000,
     params: {
         part: 'snippet',
-        key: 'AIzaSyDRG9_6_3N_NhhQ_yLY2DlDhxUDUC97FbE'
+        key: 'AIzaSyAbOzs-0FFtoKUvbE1_qKJImIDS25-QnTk'
     }
 })

@@ -7,18 +7,18 @@ import Sidebar from "../components/Sidebar/Sidebar";
 
 const HomeContainer = () => {
 
+    useEffect(() => {
+        singleVideo();
+    }, [])
+
     const singleVideo = () => {
         videoActions.getVideo({
             maxResults: 15,
-            chart:'mostPopular'
+            chart: 'mostPopular'
         })
     }
 
     const {video} = useSelector(state => state.video);
-
-    useEffect(() => {
-        singleVideo();
-    }, [])
 
     console.log("video", video)
 

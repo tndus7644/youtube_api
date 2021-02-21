@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import SearchContainer from "../containers/SearchContainer";
 
-const Search = () => {
+const Search = ({match}) => {
 
     return(
         <Container>
-            <SearchContainer/>
+            <SearchContainer match={match}/>
         </Container>
     )
 }
