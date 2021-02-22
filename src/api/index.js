@@ -1,22 +1,8 @@
-import axios from 'axios'
+import {FetchJson} from "../lib/Fetch";
 
 export const API = {
-    getVideo:(data) => youTubeApiInstance.get('/videos',{
-        params: data
-    }),
-    searchVideo:(data) => youTubeApiInstance.get('/search', {
-        params: data
-    }),
-    channelList:(data) => youTubeApiInstance.get('/channels', {
-        params: data
-    })
+    getVideo: (data) => FetchJson.get('/videos', data),
+    searchVideo: (data) => FetchJson.get('/search', data),
+    channelList: (data) => FetchJson.get('/channels', data)
 }
 
-export const youTubeApiInstance = axios.create({
-    baseURL: 'https://www.googleapis.com/youtube/v3',
-    timeout:6000,
-    params: {
-        part: 'snippet',
-        key: 'AIzaSyAbOzs-0FFtoKUvbE1_qKJImIDS25-QnTk'
-    }
-})

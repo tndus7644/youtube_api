@@ -7,10 +7,10 @@ const saga = function* () {
         takeLatest(Action.Types.CHANNEL_LIST, function* ({data}) {
             try{
                 const result = yield call(API.channelList, data)
-                console.log("[saga channelList]", result.data)
-                if (result.data) {
+                console.log("[saga channelList]", result)
+                if (result) {
                     yield put(Action.Creators.updateState({
-                        channel: result.data
+                        channel: result
                     }))
                 }
             }catch (e){

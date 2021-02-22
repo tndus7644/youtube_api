@@ -7,10 +7,10 @@ const saga = function* () {
         takeLatest(Action.Types.SEARCH_VIDEO, function* ({data}) {
             try{
                 const result = yield call(API.searchVideo, data)
-                console.log("[saga searchVideo]", result.data)
-                if (result.data) {
+                console.log("[saga searchVideo]", result)
+                if (result) {
                     yield put(Action.Creators.updateState({
-                        searchResults: result.data
+                        searchResults: result
                     }))
                 }
             }catch (e){

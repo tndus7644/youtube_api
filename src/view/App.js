@@ -6,6 +6,7 @@ import {GlobalStyle} from "../styled/Reset.Styled";
 
 const App = () => {
 
+
     return(
         <Container>
             <GlobalStyle/>

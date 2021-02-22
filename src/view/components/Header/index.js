@@ -1,20 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
-import {MenuButtonSvg, YoutubeLogo} from "../../svg";
+import {YoutubeLogo} from "../../svg";
 import SearchBox from "../SearchBox/SearchBox";
 import Nav from "./Nav";
 import GlobalButton from "../../../styled/Button.Styled";
-import {navigate} from "../../../lib/History";
+import {useHistory} from "react-router";
 
-const Header = () => {
+const Header = ({handleSidebar}) => {
+
+    const history = useHistory();
+
+    const navigate = (url) => {
+        history.push(url)
+    }
 
     return (
         <Container>
             <div>
-                <MenuButton>
-                    <MenuButtonSvg/>
-                </MenuButton>
-                <Logo onClick={() => navigate("/")}>
+                <Logo onClick={() => navigate('/')}>
                     <YoutubeLogo/>
                 </Logo>
             </div>
@@ -40,20 +43,13 @@ const Container = styled.div`
 
 const Logo = styled.div`
   cursor: pointer;
+  padding-left: 70px;
 
   svg {
     width: 85px;
   }
 `;
 
-const MenuButton = styled(GlobalButton)`
-  margin-right: 20px;
-
-  svg {
-    width: 24px;
-    fill: #666;
-  }
-`;
 
 
 export default Header;

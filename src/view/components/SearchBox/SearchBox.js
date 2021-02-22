@@ -1,12 +1,18 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {SearchSvg} from "../../svg";
-import {navigate} from "../../../lib/History";
 import GlobalButton from "../../../styled/Button.Styled";
+import {useHistory} from "react-router";
 
 const SearchBox = () => {
 
     const [value, setValue] = useState('');
+
+    const history = useHistory();
+
+    const navigate = (url) => {
+        history.push(url)
+    }
 
     const onChange = (e) => {
         setValue(e.target.value)

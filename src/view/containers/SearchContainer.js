@@ -11,13 +11,15 @@ const SearchContainer = ({match}) => {
 
     useEffect(() => {
         search();
-    },[])
+    },[query])
 
     const search = () => {
         searchActions.searchVideo({
-            q:query,
+            q:query
         })
     }
+
+    console.log("query", query)
 
     const {searchResults} = useSelector(state => state.search);
 
@@ -32,7 +34,6 @@ const SearchContainer = ({match}) => {
 
 const Container = styled.div`
   background: #f9f9f9;
-  width: 100%;
   display: flex;
 `;
 
