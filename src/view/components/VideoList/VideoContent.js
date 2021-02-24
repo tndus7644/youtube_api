@@ -1,39 +1,40 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import {channelActions} from "../../../redux/ActionCreators";
+import cn from 'classnames';
+import {useHistory} from "react-router";
 
 const VideoContent = (props) => {
 
     const {
         snippet,
-        id
+        id,
+        shape
     } = props
 
-    const VideoSrc = `https://www.youtube.com/embed/${id}`
+    const history = useHistory()
 
-    const channelId = snippet.channelId
-
-    const channel = () => {
-        channelActions.channelList({
-            id: channelId,
-            maxResults:15
-        })
+    const navigate = (url) => {
+        history.push(url)
     }
 
-    useEffect(() => {
-        channel();
-    },[])
+    const videoId = id?.videoId
+
+    const videoSrc = () => {
+        if(id.videoId){
+            navigate(`/videos/${videoId}`)
+        }else{
+            navigate(`videos/${id}`)
+        }
+    }
 
     return (
-        <Container>
-            <Video>
-                <iframe src={VideoSrc}/>
-            </Video>
+        <Container className={cn(shape)} onClick={videoSrc}>
+            <Thumb>
+                <img src={snippet?.thumbnails?.medium?.url} alt=""/>
+            </Thumb>
             <Info>
-                <Des>
-                    <h3>{snippet?.title}</h3>
-                    <p>{snippet?.channelTitle}</p>
-                </Des>
+                <h3>{snippet?.title}</h3>
+                <p>{snippet?.channelTitle}</p>
             </Info>
         </Container>
     )
@@ -41,22 +42,37 @@ const VideoContent = (props) => {
 
 const Container = styled.div`
   margin: 0 7px;
+  cursor: pointer;
+
+  &.home {
+    display: block;
+  }
+
+  &.search {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
 `;
 
-const Video = styled.div`
-  iframe{
+const Thumb = styled.div`
+
+  img {
     width: 347px;
     height: 194px;
   }
+
 `;
 
 const Info = styled.div`
   width: 308px;
   height: 110px;
   padding-top: 10px;
-`;
 
-const Des = styled.div`
+  .search & {
+    width: 500px;
+    padding-left: 20px;
+  }
 
   h3 {
     line-height: 1.3;
@@ -71,5 +87,6 @@ const Des = styled.div`
     cursor: pointer;
   }
 `;
+
 
 export default VideoContent;

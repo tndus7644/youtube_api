@@ -1,9 +1,9 @@
 import React,{useEffect} from 'react';
 import styled from 'styled-components';
-import SearchVideoList from "../components/SearchVideoList/SearchVideoList";
 import {searchActions} from "../../redux/ActionCreators";
 import {useSelector} from "react-redux";
 import Sidebar from "../components/Sidebar/Sidebar";
+import VideoList from "../components/VideoList/VideoList";
 
 const SearchContainer = ({match}) => {
 
@@ -19,15 +19,12 @@ const SearchContainer = ({match}) => {
         })
     }
 
-    console.log("query", query)
-
     const {searchResults} = useSelector(state => state.search);
-
 
     return (
         <Container>
             <Sidebar/>
-            <SearchVideoList searchVideo={searchResults?.items}/>
+            <VideoList video={searchResults?.items} shape={"search"}/>
         </Container>
     )
 }

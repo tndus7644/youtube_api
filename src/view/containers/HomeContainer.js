@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
-import {appActions, channelActions, videoActions} from "../../redux/ActionCreators";
+import {videoActions} from "../../redux/ActionCreators";
 import {useSelector} from "react-redux";
 import VideoList from "../components/VideoList/VideoList";
 import Sidebar from "../components/Sidebar/Sidebar";
@@ -20,26 +20,10 @@ const HomeContainer = () => {
 
     const {video} = useSelector(state => state.video);
 
-    const {channel} = useSelector(state => state.channel);
-    const channelItem = () => {
-        channelActions.channelList({})
-    }
-
-    const {sidebar} = useSelector(state => state.app);
-
-    const handleSidebar = () => {
-        appActions.updateState({
-            sidebar:!sidebar
-        })
-    }
-
-    console.log("sidebar", sidebar)
-
-
     return (
         <Container className={"HomeContainer"}>
-            <Sidebar handleSidebar={handleSidebar}/>
-            <VideoList video={video.items}/>
+            <Sidebar/>
+            <VideoList video={video.items} shape={"home"}/>
         </Container>
     )
 }

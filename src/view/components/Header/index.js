@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {YoutubeLogo} from "../../svg";
+import {MenuButtonSvg, YoutubeLogo} from "../../svg";
 import SearchBox from "../SearchBox/SearchBox";
 import Nav from "./Nav";
 import GlobalButton from "../../../styled/Button.Styled";
@@ -17,6 +17,9 @@ const Header = ({handleSidebar}) => {
     return (
         <Container>
             <div>
+                <MenuButton onClick={handleSidebar}>
+                    <MenuButtonSvg/>
+                </MenuButton>
                 <Logo onClick={() => navigate('/')}>
                     <YoutubeLogo/>
                 </Logo>
@@ -33,23 +36,28 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255,255,255,0.98);
-  
-  div{
+  background: rgba(255, 255, 255, 0.98);
+
+  div {
     display: flex;
     align-items: center;
   }
 `;
 
+const MenuButton = styled(GlobalButton)`
+  svg {
+    opacity: 0.6;
+  }
+`;
+
 const Logo = styled.div`
   cursor: pointer;
-  padding-left: 70px;
+  padding-left: 30px;
 
   svg {
     width: 85px;
   }
 `;
-
 
 
 export default Header;

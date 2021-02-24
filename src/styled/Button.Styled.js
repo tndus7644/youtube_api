@@ -2,9 +2,6 @@ import styled from 'styled-components';
 
 export const GlobalButton = styled.button`
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border: 1px solid transparent;
   font-weight: normal;
   text-align: center;
