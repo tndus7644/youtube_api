@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {DotMenuRowSvg, HateSvg, LikesSvg, SaveSvg, SharingSvg} from "../../svg";
 import GlobalButton from "../../../styled/Button.Styled";
-import Channel from "../Channel/Channel";
+import ChannelNav from "../Channel/Channel";
 
 const VideoDetail = (props) => {
 
@@ -26,7 +26,7 @@ const VideoDetail = (props) => {
                         <h1>{snippet?.title}</h1>
                         <p>
                             <span>조회수</span>
-                            <span>{statistics?.viewCount}</span>
+                            <span>{statistics?.viewCount}회</span>
                             <span>&#183;</span>
                             <span>{snippet?.publishedAt}</span>
                         </p>
@@ -39,7 +39,7 @@ const VideoDetail = (props) => {
                         <Button><DotMenuRowSvg/></Button>
                     </ButtonGroup>
                 </VideoInfo>
-                <Channel channel={channel}/>
+                <ChannelNav channel={channel} snippet={snippet}/>
             </VideoContent>
         </Container>
     )

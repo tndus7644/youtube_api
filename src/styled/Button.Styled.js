@@ -8,6 +8,8 @@ export const GlobalButton = styled.button`
   white-space: nowrap;
   background: none;
   cursor: pointer;
+  padding: 0;
+  margin: 0;
   
   &:focus{
     outline: 0;

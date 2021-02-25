@@ -66,8 +66,8 @@ const Thumb = styled.div`
 
 const Info = styled.div`
   width: 308px;
-  height: 110px;
   padding-top: 10px;
+  margin-bottom: 30px;
 
   .search & {
     width: 500px;
