@@ -21,8 +21,7 @@ const request = async (method, url, data) => {
         if (method === FetchConsts.GET) {
             config.params = {
                 ...data,
-                key: 'AIzaSyAbOzs-0FFtoKUvbE1_qKJImIDS25-QnTk',
-                part:'snippet'
+                key: 'AIzaSyANNh_QFIbDNPpYsaeJG8dDOY7X6juWMBc'
             }
         } else {
             config.data = data

@@ -4,6 +4,7 @@ import {videoActions} from "../../redux/ActionCreators";
 import {useSelector} from "react-redux";
 import VideoList from "../components/VideoList/VideoList";
 import Sidebar from "../components/Sidebar/Sidebar";
+import {ContentContainer} from "../../styled/Layout.Styled";
 
 const HomeContainer = () => {
 
@@ -14,7 +15,8 @@ const HomeContainer = () => {
     const singleVideo = () => {
         videoActions.getVideo({
             maxResults: 15,
-            chart: 'mostPopular'
+            chart: 'mostPopular',
+            part:'snippet'
         })
     }
 
@@ -28,9 +30,7 @@ const HomeContainer = () => {
     )
 }
 
-const Container = styled.div`
-  background: #f9f9f9;
-  display: flex;
+const Container = styled(ContentContainer)`
 `;
 
 

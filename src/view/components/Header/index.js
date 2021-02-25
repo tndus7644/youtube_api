@@ -45,9 +45,6 @@ const Container = styled.div`
 `;
 
 const MenuButton = styled(GlobalButton)`
-  svg {
-    opacity: 0.6;
-  }
 `;
 
 const Logo = styled.div`

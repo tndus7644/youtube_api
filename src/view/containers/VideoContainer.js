@@ -1,37 +1,52 @@
-import React,{useEffect} from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import VideoDetail from "../components/VideoDetail/VideoDetail";
-import {videoActions} from "../../redux/ActionCreators";
+import {channelActions, videoActions} from "../../redux/ActionCreators";
 import {useSelector} from "react-redux";
+import {ContentContainer} from "../../styled/Layout.Styled";
 
 const VideoContainer = ({match}) => {
 
     const id = match.params.id
 
+    const {video} = useSelector(state => state.video);
+
     const videoById = () => {
         videoActions.getVideo({
-            id
+            id,
+            part: 'snippet,statistics'
         })
     }
 
+    const channelId = video.items[0]?.snippet?.channelId
+
+    const channelList = () => {
+        channelActions.channelList({
+            id: channelId,
+            part:'snippet,statistics'
+        })
+    }
+
+    const {channel} = useSelector(state => state.channel);
+
     useEffect(() => {
         videoById();
-    },[])
-
-    const {video} = useSelector(state => state.video);
-
-    console.log("video", video)
+        channelList();
+    }, [channelId])
 
     return (
         <Container>
-            <VideoDetail id={id} info={video.items[0]}/>
+            <VideoDetail id={id}
+                         snippet={video.items[0]?.snippet}
+                         statistics={video.items[0]?.statistics}
+                         channel={channel.items[0]}
+            />
         </Container>
     )
 }
 
-const Container = styled.div`
-  background: #f7f7f7;
-  padding-top: 80px;
+const Container = styled(ContentContainer)`
+
 `;
 
 export default VideoContainer;

@@ -91,9 +91,6 @@ const Button = styled(GlobalButton)`
     line-height: 1.6;
   }
 
-  svg {
-    opacity: 0.6;
-  }
 
   &:hover {
     background: #f1f1f1;

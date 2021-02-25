@@ -14,6 +14,7 @@ export const GlobalButton = styled.button`
   }
   
   svg{
+    opacity: 0.5;
     width: 25px;
   }
 `;

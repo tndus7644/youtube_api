@@ -4,6 +4,7 @@ import {searchActions} from "../../redux/ActionCreators";
 import {useSelector} from "react-redux";
 import Sidebar from "../components/Sidebar/Sidebar";
 import VideoList from "../components/VideoList/VideoList";
+import {ContentContainer} from "../../styled/Layout.Styled";
 
 const SearchContainer = ({match}) => {
 
@@ -15,7 +16,9 @@ const SearchContainer = ({match}) => {
 
     const search = () => {
         searchActions.searchVideo({
-            q:query
+            q:query,
+            maxResults:7,
+            part:'snippet'
         })
     }
 
@@ -29,7 +32,7 @@ const SearchContainer = ({match}) => {
     )
 }
 
-const Container = styled.div`
+const Container = styled(ContentContainer)`
   background: #f9f9f9;
   display: flex;
 `;

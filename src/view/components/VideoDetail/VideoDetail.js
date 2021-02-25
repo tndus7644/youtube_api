@@ -1,54 +1,102 @@
 import React from 'react';
 import styled from 'styled-components';
-import RelatedVideo from "../RelatedVideo/RelatedVideo";
+import {DotMenuRowSvg, HateSvg, LikesSvg, SaveSvg, SharingSvg} from "../../svg";
+import GlobalButton from "../../../styled/Button.Styled";
+import Channel from "../Channel/Channel";
 
 const VideoDetail = (props) => {
 
     const {
         id,
-        info
+        statistics,
+        snippet,
+        channel
     } = props
 
     const videoSrc = `https://www.youtube.com/embed/${id}`
 
-    console.log("info", info)
+    console.log("channel", channel)
 
     return (
         <Container>
-            <Video>
+            <VideoContent>
                 <iframe src={videoSrc}/>
-                <Related>
-                    <RelatedVideo/>
-                </Related>
-            </Video>
-            <h1>{info?.snippet?.title}</h1>
+                <VideoInfo>
+                    <div>
+                        <h1>{snippet?.title}</h1>
+                        <p>
+                            <span>조회수</span>
+                            <span>{statistics?.viewCount}</span>
+                            <span>&#183;</span>
+                            <span>{snippet?.publishedAt}</span>
+                        </p>
+                    </div>
+                    <ButtonGroup>
+                        <Button><LikesSvg/><p>{statistics?.likeCount}</p></Button>
+                        <Button><HateSvg/><p>{statistics?.dislikeCount}</p></Button>
+                        <Button><SharingSvg/><p>공유</p></Button>
+                        <Button><SaveSvg/><p>저장</p></Button>
+                        <Button><DotMenuRowSvg/></Button>
+                    </ButtonGroup>
+                </VideoInfo>
+                <Channel channel={channel}/>
+            </VideoContent>
         </Container>
     )
 }
 
 const Container = styled.div`
-  max-width: 1300px;
+  padding-top: 80px;
   margin: 0 auto;
 
-  h1{
-    line-height: 2;
-    font-size: 20px;
-    font-weight: 500;
-  }
 `;
 
-const Video = styled.div`
-  display: flex;
-
+const VideoContent = styled.div`
   iframe {
     width: 1150px;
     height: 647px;
   }
-`;
-
-const Related = styled.div`
 
 `;
+
+const VideoInfo = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+               
+  h1 {
+    padding-top: 15px;
+    line-height: 1.6;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+
+    span {
+      display: inline-block;
+      padding-right: 3px;
+    }
+  }
+
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Button = styled(GlobalButton)`
+  display: flex;
+  padding: 0 10px;
+  p{
+    padding-left: 5px;
+  }
+`;
+
 
 
 export default VideoDetail;
