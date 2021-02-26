@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Routes from "./routes/Routes";
-import HeaderContainer from "./containers/HeaderContainer";
+import HeaderContainer from "./containers/Header/HeaderContainer";
 import {GlobalStyle} from "../styled/Reset.Styled";
 
 const App = () => {

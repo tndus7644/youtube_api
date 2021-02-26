@@ -1,8 +1,8 @@
 import React,{useState} from 'react';
 import styled from 'styled-components';
-import Header from "../components/Header";
+import Header from "../../components/Header";
 import {useSelector} from "react-redux";
-import {appActions} from "../../redux/ActionCreators";
+import {appActions} from "../../../redux/ActionCreators";
 
 const HeaderContainer = () => {
 

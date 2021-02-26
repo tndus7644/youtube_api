@@ -3,6 +3,7 @@ import videoSaga from './Video/saga';
 import SearchSaga from './Search/saga';
 import ChannelSaga from './Channel/saga';
 import appSaga from './App/saga';
+import commentsSaga from './Comments/saga';
 
 function* sagas() {
     yield all ([
@@ -10,6 +11,7 @@ function* sagas() {
         call(SearchSaga),
         call(ChannelSaga),
         call(appSaga),
+        call(commentsSaga),
     ])
 }
 

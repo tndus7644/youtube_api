@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react';
 import styled from 'styled-components';
-import VideoDetail from "../components/VideoDetail/VideoDetail";
-import {channelActions, videoActions} from "../../redux/ActionCreators";
+import VideoDetail from "../../components/VideoDetail/VideoDetail";
+import {channelActions, videoActions} from "../../../redux/ActionCreators";
 import {useSelector} from "react-redux";
-import {ContentContainer} from "../../styled/Layout.Styled";
+import {ContentContainer} from "../../../styled/Layout.Styled";
+import CommentsContainer from "./CommentsContainer";
 
 const VideoContainer = ({match}) => {
 

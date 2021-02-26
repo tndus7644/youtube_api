@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {DotMenuRowSvg, HateSvg, LikesSvg, SaveSvg, SharingSvg} from "../../svg";
 import GlobalButton from "../../../styled/Button.Styled";
 import ChannelNav from "../Channel/Channel";
+import CommentsContainer from "../../containers/VideoDetail/CommentsContainer";
 
 const VideoDetail = (props) => {
 
@@ -41,6 +42,7 @@ const VideoDetail = (props) => {
                 </VideoInfo>
                 <ChannelNav channel={channel} snippet={snippet}/>
             </VideoContent>
+            <CommentsContainer id={id}/>
         </Container>
     )
 }
@@ -63,7 +65,7 @@ const VideoInfo = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-               
+
   h1 {
     padding-top: 15px;
     line-height: 1.6;
@@ -92,11 +94,11 @@ const ButtonGroup = styled.div`
 const Button = styled(GlobalButton)`
   display: flex;
   padding: 0 10px;
-  p{
+
+  p {
     padding-left: 5px;
   }
 `;
-
 
 
 export default VideoDetail;

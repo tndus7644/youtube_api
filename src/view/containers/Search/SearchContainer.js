@@ -1,10 +1,10 @@
 import React,{useEffect} from 'react';
 import styled from 'styled-components';
-import {searchActions} from "../../redux/ActionCreators";
+import {searchActions} from "../../../redux/ActionCreators";
 import {useSelector} from "react-redux";
-import Sidebar from "../components/Sidebar/Sidebar";
-import VideoList from "../components/VideoList/VideoList";
-import {ContentContainer} from "../../styled/Layout.Styled";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import VideoList from "../../components/VideoList/VideoList";
+import {ContentContainer} from "../../../styled/Layout.Styled";
 
 const SearchContainer = ({match}) => {
 
@@ -25,7 +25,7 @@ const SearchContainer = ({match}) => {
     const {searchResults} = useSelector(state => state.search);
 
     return (
-        <Container>
+        <Container className={"SearchContainer"}>
             <Sidebar/>
             <VideoList video={searchResults?.items} shape={"search"}/>
         </Container>
