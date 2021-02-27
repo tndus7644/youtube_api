@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {DotMenuRowSvg, HateSvg, LikesSvg, SaveSvg, SharingSvg} from "../../svg";
 import GlobalButton from "../../../styled/Button.Styled";
-import ChannelNav from "../Channel/Channel";
+import ChannelNav from "../Channel/VideoDetailChannel";
 import CommentsContainer from "../../containers/VideoDetail/CommentsContainer";
 
 const VideoDetail = (props) => {
@@ -15,8 +15,6 @@ const VideoDetail = (props) => {
     } = props
 
     const videoSrc = `https://www.youtube.com/embed/${id}`
-
-    console.log("channel", channel)
 
     return (
         <Container>
@@ -42,7 +40,7 @@ const VideoDetail = (props) => {
                 </VideoInfo>
                 <ChannelNav channel={channel} snippet={snippet}/>
             </VideoContent>
-            <CommentsContainer id={id}/>
+            <CommentsContainer id={id} commentCount={statistics?.commentCount}/>
         </Container>
     )
 }
@@ -50,10 +48,11 @@ const VideoDetail = (props) => {
 const Container = styled.div`
   padding-top: 80px;
   margin: 0 auto;
-
+  width: 1150px;
 `;
 
 const VideoContent = styled.div`
+  border-bottom: 1px solid #ddd;
   iframe {
     width: 1150px;
     height: 647px;

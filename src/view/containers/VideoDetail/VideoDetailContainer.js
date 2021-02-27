@@ -4,9 +4,8 @@ import VideoDetail from "../../components/VideoDetail/VideoDetail";
 import {channelActions, videoActions} from "../../../redux/ActionCreators";
 import {useSelector} from "react-redux";
 import {ContentContainer} from "../../../styled/Layout.Styled";
-import CommentsContainer from "./CommentsContainer";
 
-const VideoContainer = ({match}) => {
+const VideoDetailContainer = ({match}) => {
 
     const id = match.params.id
 
@@ -24,7 +23,7 @@ const VideoContainer = ({match}) => {
     const channelList = () => {
         channelActions.channelList({
             id: channelId,
-            part:'snippet,statistics'
+            part: 'snippet,statistics'
         })
     }
 
@@ -50,4 +49,4 @@ const Container = styled(ContentContainer)`
 
 `;
 
-export default VideoContainer;
+export default VideoDetailContainer;

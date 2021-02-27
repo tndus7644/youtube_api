@@ -33,8 +33,6 @@ const SearchContainer = ({match}) => {
 }
 
 const Container = styled(ContentContainer)`
-  background: #f9f9f9;
-  display: flex;
 `;
 
 

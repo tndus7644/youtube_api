@@ -32,7 +32,7 @@ const Header = ({handleSidebar}) => {
 
 const Container = styled.div`
   height: 60px;
-  padding: 0 20px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;

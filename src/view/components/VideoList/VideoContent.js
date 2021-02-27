@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
 import {useHistory} from "react-router";
+import VideoContentChannel from "../Channel/VideoContentChannel";
 
 const VideoContent = (props) => {
 
@@ -11,7 +12,7 @@ const VideoContent = (props) => {
         shape
     } = props
 
-    const history = useHistory()
+    const history = useHistory();
 
     const navigate = (url) => {
         history.push(url)
@@ -23,7 +24,7 @@ const VideoContent = (props) => {
         if(id.videoId){
             navigate(`/videos/${videoId}`)
         }else{
-            navigate(`videos/${id}`)
+            navigate(`/videos/${id}`)
         }
     }
 
@@ -35,13 +36,14 @@ const VideoContent = (props) => {
             <Info>
                 <h3>{snippet?.title}</h3>
                 <p>{snippet?.channelTitle}</p>
+                <VideoContentChannel snippet={snippet} id={{id}}/>
             </Info>
         </Container>
     )
 }
 
 const Container = styled.div`
-  margin: 0 7px;
+  margin: 0 7px 30px;
   cursor: pointer;
 
   &.home {
@@ -58,8 +60,8 @@ const Container = styled.div`
 const Thumb = styled.div`
 
   img {
-    width: 347px;
-    height: 194px;
+    min-width: 347px;
+    min-height: 194px;
   }
 
 `;
@@ -67,7 +69,6 @@ const Thumb = styled.div`
 const Info = styled.div`
   width: 308px;
   padding-top: 10px;
-  margin-bottom: 30px;
 
   .search & {
     width: 500px;

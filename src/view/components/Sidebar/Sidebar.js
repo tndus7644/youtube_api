@@ -38,7 +38,6 @@ const Sidebar = () => {
 }
 
 const Container = styled.div`
-  position: relative;
 `;
 
 
@@ -51,9 +50,6 @@ const MenuGroup = styled.div`
   width: 75px;
   height: 100vh;
   background: #fff;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
 
   &.isActive {
     width: 210px;

@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import VideoContainer from "../containers/VideoDetail/VideoContainer";
+import VideoDetailContainer from "../containers/VideoDetail/VideoDetailContainer";
 import CommentsContainer from "../containers/VideoDetail/CommentsContainer";
 
 const Video = ({match}) => {
 
     return(
         <Container>
-            <VideoContainer match={match}/>
+            <VideoDetailContainer match={match}/>
         </Container>
     )
 }

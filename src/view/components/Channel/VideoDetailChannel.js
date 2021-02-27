@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import GlobalButton from "../../../styled/Button.Styled";
 import cn from 'classnames';
 
-const ChannelNav = (props) => {
+const VideoDetailChannel = (props) => {
 
     const {
         snippet,
@@ -88,4 +88,4 @@ const Button = styled(GlobalButton)`
   color: #666;
 `;
 
-export default ChannelNav;
+export default VideoDetailChannel;
