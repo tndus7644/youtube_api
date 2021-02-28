@@ -1,4 +1,5 @@
 import axios from "axios";
+import {YOUTUBE_API_KEY, URL} from '../constants/Consts'
 
 const FetchConsts = {
     GET: 'get',
@@ -8,7 +9,7 @@ const FetchConsts = {
 }
 
 export const youTubeApiInstance = axios.create({
-    baseURL: 'https://www.googleapis.com/youtube/v3',
+    baseURL: URL.API_BASE_URL,
     timeout: 6000,
 })
 
@@ -21,7 +22,7 @@ const request = async (method, url, data) => {
         if (method === FetchConsts.GET) {
             config.params = {
                 ...data,
-                key: 'AIzaSyDLI6VNwRIjUSlNJkaRTLX7V8HxRjKEt4I'
+                key: YOUTUBE_API_KEY
             }
         } else {
             config.data = data

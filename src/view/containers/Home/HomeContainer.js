@@ -22,6 +22,8 @@ const HomeContainer = () => {
 
     const {video} = useSelector(state => state.video);
 
+    console.log("video", video)
+
     return (
         <Container className={"HomeContainer"}>
             <Sidebar/>

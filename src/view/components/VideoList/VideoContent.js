@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
 import {useHistory} from "react-router";
-import VideoContentChannel from "../Channel/VideoContentChannel";
 
 const VideoContent = (props) => {
 
@@ -36,7 +35,6 @@ const VideoContent = (props) => {
             <Info>
                 <h3>{snippet?.title}</h3>
                 <p>{snippet?.channelTitle}</p>
-                <VideoContentChannel snippet={snippet} id={{id}}/>
             </Info>
         </Container>
     )

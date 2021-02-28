@@ -14,8 +14,6 @@ const HeaderContainer = () => {
         })
     }
 
-    console.log("sidebar", sidebar)
-
     return (
         <Container className={"HeaderContainer"}>
             <Header handleSidebar={handleSidebar}/>
