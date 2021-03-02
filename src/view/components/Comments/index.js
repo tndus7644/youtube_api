@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import {HateSvg, LikesSvg} from "../svg";
-import GlobalButton from "../../styled/Button.Styled";
+import {HateSvg, LikesSvg} from "../../svg";
+import GlobalButton from "../../../styled/Button.Styled";
 
 const Comments = (props) => {
 

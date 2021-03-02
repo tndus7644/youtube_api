@@ -6,7 +6,7 @@ const saga = function* () {
     yield all([
         takeLatest(Action.Types.SEARCH_VIDEO, function* ({data}) {
             try{
-                const result = yield call(API.searchVideo, data)
+                const result = yield call(API.searchVideos, data)
                 console.log("[saga searchVideo]", result)
                 if (result) {
                     yield put(Action.Creators.updateState({

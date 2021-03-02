@@ -1,52 +1,60 @@
 import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import VideoDetail from "../../components/VideoDetail/VideoDetail";
-import {channelActions, videoActions} from "../../../redux/ActionCreators";
+import {commentsActions, videoActions} from "../../../redux/ActionCreators";
 import {useSelector} from "react-redux";
 import {ContentContainer} from "../../../styled/Layout.Styled";
+import ActivitiesList from "../../components/ActivitiesList/ActivitiesList";
 
 const VideoDetailContainer = ({match}) => {
 
     const id = match.params.id
 
-    const {video} = useSelector(state => state.video);
+    const {detail, activities} = useSelector(state => state.video);
+
+    useEffect(() => {
+        videoById();
+        getComments();
+        activitiesList();
+    }, [id])
+
 
     const videoById = () => {
-        videoActions.getVideo({
+        videoActions.getVideoById({
             id,
             part: 'snippet,statistics'
         })
     }
 
-    const channelId = video.items[0]?.snippet?.channelId
-
-    const channelList = () => {
-        channelActions.channelList({
-            id: channelId,
-            part: 'snippet,statistics'
+    const getComments = () => {
+        commentsActions.commentsList({
+            part: 'snippet',
+            videoId: id,
+            maxResults: 10
         })
     }
 
-    const {channel} = useSelector(state => state.channel);
+    const activitiesList = () => {
+        videoActions.getActivitiesVideos({})
+    }
 
-    useEffect(() => {
-        videoById();
-        channelList();
-    }, [channelId])
+    if (!detail) return null;
 
     return (
         <Container>
             <VideoDetail id={id}
-                         snippet={video.items[0]?.snippet}
-                         statistics={video.items[0]?.statistics}
-                         channel={channel.items[0]}
+                         snippet={detail.video.items[0]?.snippet}
+                         statistics={detail.video.items[0]?.statistics}
+                         channel={detail.channel.items[0]}
             />
+            <ActivitiesList activities={activities}/>
         </Container>
     )
 }
 
 const Container = styled(ContentContainer)`
-
+  padding-top: 80px;
+  justify-content: center;
 `;
 
 export default VideoDetailContainer;

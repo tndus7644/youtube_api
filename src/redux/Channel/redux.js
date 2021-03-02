@@ -1,7 +1,7 @@
 import {createActions, createReducer} from "reduxsauce";
 
 const initialState = {
-    channel:{
+    list:{
         items:[]
     }
 }

@@ -1,26 +1,11 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import Comments from "../../Comments";
-import {commentsActions} from "../../../redux/ActionCreators";
+import Comments from "../../components/Comments";
 import {useSelector} from "react-redux";
 
-const CommentsContainer = ({id, commentCount}) => {
+const CommentsContainer = ({commentCount}) => {
 
     const {comments} = useSelector(state => state.comments)
-
-    console.log("comments", comments)
-
-    useEffect(() => {
-        getComments();
-    }, [])
-
-    const getComments = () => {
-        commentsActions.commentsList({
-            part: 'snippet',
-            videoId: id,
-            maxResults:10
-        })
-    }
 
     return (
         <Container className={"CommentsContainer"}>

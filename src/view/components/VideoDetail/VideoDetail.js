@@ -4,6 +4,7 @@ import {DotMenuRowSvg, HateSvg, LikesSvg, SaveSvg, SharingSvg} from "../../svg";
 import GlobalButton from "../../../styled/Button.Styled";
 import ChannelNav from "../Channel/VideoDetailChannel";
 import CommentsContainer from "../../containers/VideoDetail/CommentsContainer";
+import {thousandNumberFormat} from "../../../lib/common";
 
 const VideoDetail = (props) => {
 
@@ -25,7 +26,7 @@ const VideoDetail = (props) => {
                         <h1>{snippet?.title}</h1>
                         <p>
                             <span>조회수</span>
-                            <span>{statistics?.viewCount}회</span>
+                            <span>{thousandNumberFormat(statistics?.viewCount)}회</span>
                             <span>&#183;</span>
                             <span>{snippet?.publishedAt}</span>
                         </p>
@@ -46,9 +47,7 @@ const VideoDetail = (props) => {
 }
 
 const Container = styled.div`
-  padding-top: 80px;
-  margin: 0 auto;
-  width: 1150px;
+  max-width: 1150px;
 `;
 
 const VideoContent = styled.div`

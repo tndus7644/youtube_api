@@ -6,11 +6,11 @@ const saga = function* () {
     yield all([
         takeLatest(Action.Types.CHANNEL_LIST, function* ({data}) {
             try{
-                const result = yield call(API.channelList, data)
+                const result = yield call(API.channelsList, data)
                 console.log("[saga channelList]", result)
                 if (result) {
                     yield put(Action.Creators.updateState({
-                        channel: result
+                        list: result
                     }))
                 }
             }catch (e){

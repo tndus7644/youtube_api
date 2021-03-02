@@ -14,26 +14,25 @@ const VideoList = (props) => {
         <Container className={cn(shape)}>
             {video.map((item, index) =>
                 <VideoContent key={index} {...item} shape={shape}/>
-                )}
+            )}
         </Container>
     )
 }
 
 const Container = styled.div`
   padding-top: 80px;
-  
+
   &.home {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
   }
-  
+
   &.search {
     max-width: 1100px;
     margin: 0 auto;
   }
 `;
-
 
 
 export default VideoList;
