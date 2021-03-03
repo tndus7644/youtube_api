@@ -1,14 +1,17 @@
 import {createActions, createReducer} from "reduxsauce";
 
-const initialState = {　　
+const initialState = {　
+    hasMore:true,
+    isLoading: false,　
     searchResults: {
         items:[]
-    }
+    },
 }
 
 export const Action = createActions({
     updateState: ['props'],
-    searchVideo:['data']
+    searchVideo:['data'],
+    searchVideoMore:['data'],
 }, {
     prefix: 'SEARCH/'
 });

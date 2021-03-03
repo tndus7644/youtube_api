@@ -41,7 +41,7 @@ const VideoDetailContainer = ({match}) => {
     if (!detail) return null;
 
     return (
-        <Container>
+        <Container className={"VideoDetailContainer"}>
             <VideoDetail id={id}
                          snippet={detail.video.items[0]?.snippet}
                          statistics={detail.video.items[0]?.statistics}

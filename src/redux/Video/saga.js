@@ -13,7 +13,6 @@ const saga = function* () {
                 const result = yield call(API.getVideos, data)
                 console.log("[saga getVideos]", result)
                 const prevVideos = yield select(state => state.video.list);
-
                 if (result.items.length === 0) {
                     yield put(Action.Creators.updateState({
                         hasMore: false

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {DotMenuSvg, ServiceButtonSvg} from "../../svg";
 import GlobalButton from "../../../styled/Button.Styled";
 
-const Nav = () => {
+const HeaderNav = () => {
 
     return(
         <Container>
@@ -20,7 +20,7 @@ const Nav = () => {
 }
 
 const Container = styled.div`
-
+padding: 0 10px;
 `;
 
 const ButtonGroup = styled.div`
@@ -31,8 +31,7 @@ const Button = styled(GlobalButton)`
   cursor: pointer;
     svg{
       width: 30px;
-      fill:#666;
     }
 `;
 
-export default Nav;
+export default HeaderNav;

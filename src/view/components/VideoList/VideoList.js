@@ -29,7 +29,6 @@ const Container = styled.div`
   }
 
   &.search {
-    max-width: 1100px;
     margin: 0 auto;
   }
 `;

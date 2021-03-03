@@ -22,6 +22,7 @@ const ActivitiesListContent = (props) => {
                 <Title>
                     <h3>{snippet?.title}</h3>
                     <p>{snippet?.channelTitle}</p>
+                    <p>조회수 1만 &#183; 1개월</p>
                 </Title>
             </Content>
         </Container>
@@ -38,12 +39,15 @@ const Content = styled.div`
 
   img {
     max-width: 168px;
+    width: 100%;
+    height: 100%;
   }
 `;
 
 const Title = styled.div`
   padding-left: 10px;
   line-height: 1.5;
+
   h3 {
     font-size: 14px;
     font-weight: 600;

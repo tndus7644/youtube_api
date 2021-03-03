@@ -4,19 +4,26 @@ import {FireSvg, HistorySvg, HomeSvg, MenuButtonSvg, StorageSvg, SubscribeSvg} f
 import GlobalButton from "../../../styled/Button.Styled";
 import {useSelector} from "react-redux";
 import cn from 'classnames';
+import {useHistory} from "react-router";
 
 const Sidebar = () => {
 
     const {sidebar} = useSelector(state => state.app);
 
+    const history = useHistory();
+
+    const navigate = (url) => {
+        history.push(url)
+    }
+
     return (
         <Container>
             <MenuGroup className={cn({isActive: sidebar})}>
-                <Button className={"button"}>
+                <Button className={"button"} onClick={() => navigate('/')}>
                     <HomeSvg/>
                     <p>홈</p>
                 </Button>
-                <Button className={"button"}>
+                <Button className={"button"} onClick={() => navigate('/trending')}>
                     <FireSvg/>
                     <p>인기</p>
                 </Button>

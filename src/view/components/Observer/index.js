@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {useSelector} from "react-redux";
 import Sidebar from "../Sidebar/Sidebar";
 import VideoList from "../VideoList/VideoList";
+import {ContentContainer} from "../../../styled/Layout.Styled";
 
 const Observer = (props) => {
 
@@ -32,17 +33,18 @@ const Observer = (props) => {
     },  [isLoading, hasMore])
 
     return (
-        <Container>
+        <Container className={"Observer"}>
             {children}
             {
                 initilized && !isLoading &&
                 <Sentinel ref={sentinelRef}/>
+
             }
         </Container>
     )
 }
 
-const Container = styled.div`
+const Container = styled(ContentContainer)`
 
 `;
 
@@ -52,7 +54,7 @@ const Sentinel = styled.div`
   right: 0; 
   bottom: 100px;
   height: 50px;
-  background: #ddd;
+  background: #000;
 `;
 
 

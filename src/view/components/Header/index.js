@@ -2,9 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import {MenuButtonSvg, YoutubeLogo} from "../../svg";
 import SearchBox from "../SearchBox/SearchBox";
-import Nav from "./Nav";
+import HeaderNav from "./Nav";
 import GlobalButton from "../../../styled/Button.Styled";
 import {useHistory} from "react-router";
+import Login from "../Login";
 
 const Header = ({handleSidebar}) => {
 
@@ -25,7 +26,10 @@ const Header = ({handleSidebar}) => {
                 </Logo>
             </div>
             <SearchBox/>
-            <Nav/>
+            <Nav>
+                <HeaderNav/>
+                <Login/>
+            </Nav>
         </Container>
     )
 }
@@ -54,6 +58,10 @@ const Logo = styled.div`
   svg {
     width: 85px;
   }
+`;
+
+const Nav = styled.div`
+  display: flex;
 `;
 
 
