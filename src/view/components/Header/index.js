@@ -17,14 +17,14 @@ const Header = ({handleSidebar}) => {
 
     return (
         <Container>
-            <div>
+            <HeaderGroup>
                 <MenuButton onClick={handleSidebar}>
                     <MenuButtonSvg/>
                 </MenuButton>
                 <Logo onClick={() => navigate('/')}>
                     <YoutubeLogo/>
                 </Logo>
-            </div>
+            </HeaderGroup>
             <SearchBox/>
             <Nav>
                 <HeaderNav/>
@@ -42,10 +42,11 @@ const Container = styled.div`
   justify-content: space-between;
   background: rgba(255, 255, 255, 0.98);
 
-  div {
-    display: flex;
-    align-items: center;
-  }
+`;
+
+const HeaderGroup = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const MenuButton = styled(GlobalButton)`

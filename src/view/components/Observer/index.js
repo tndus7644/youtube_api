@@ -54,7 +54,7 @@ const Sentinel = styled.div`
   right: 0; 
   bottom: 100px;
   height: 50px;
-  background: #000;
+  background: rgba(0,0,0,0);
 `;
 
 

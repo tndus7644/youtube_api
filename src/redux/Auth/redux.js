@@ -1,14 +1,14 @@
 import {createActions, createReducer} from "reduxsauce";
 
 const initialState = {
-    sidebar:false,
-    memberSidebar:false
+    isLoggedIn:false,
+    profileObj:undefined
 }
 
 export const Action = createActions({
     updateState: ['props']
 }, {
-    prefix: 'APP/'
+    prefix: 'AUTH/'
 });
 
 export default createReducer(initialState,{

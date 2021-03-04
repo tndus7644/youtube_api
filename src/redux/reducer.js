@@ -5,6 +5,7 @@ import searchReducer from './Search/redux';
 import channelReducer from './Channel/redux';
 import appReducer from './App/redux';
 import commentsReducer from './Comments/redux';
+import authReducer from './Auth/redux';
 
 const reducers = combineReducers({
     video: videoReducer,
@@ -12,6 +13,7 @@ const reducers = combineReducers({
     channel: channelReducer,
     app: appReducer,
     comments: commentsReducer,
+    auth: authReducer,
 });
 
 export default reducers;
