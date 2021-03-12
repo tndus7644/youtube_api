@@ -10,27 +10,23 @@ import Observer from "../../components/Observer";
 const HomeContainer = () => {
 
     const {list, isLoading, hasMore} = useSelector(state => state.video);
+
     const [page, setPage] = useState(1);
 
     useEffect(() => {
-        getVideos();
-    }, [page])
-
-    const getVideos = () => {
         videoActions.getVideos({
             maxResults: 15,
             chart: 'mostPopular',
             part: 'snippet, id, contentDetails, player, statistics',
             regionCode: 'KR',
-            pageToken: list?.nextPageToken
         })
-    }
-
-    console.log("list", list)
+    }, [page])
 
     const onEnter = () => {
         setPage(prevPage => prevPage + 1);
     }
+
+    console.log("list", list)
 
     return (
         <Container className={"HomeContainer"}>

@@ -29,7 +29,7 @@ const LoginSidebar = () => {
         })
     }
 
-    const {signOut, loaded} = useGoogleLogout({
+    const {signOut} = useGoogleLogout({
         clientId: GOOGLE_CLIENT_ID,
         cookiePolicy: 'single_host_origin',
         isSignedIn: true,

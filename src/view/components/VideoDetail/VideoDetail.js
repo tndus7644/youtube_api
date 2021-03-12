@@ -20,7 +20,7 @@ const VideoDetail = (props) => {
     return (
         <Container>
             <VideoContent>
-                <iframe src={videoSrc}/>
+                <iframe title={id} src={videoSrc}/>
                 <VideoInfo>
                     <div>
                         <h1>{snippet?.title}</h1>

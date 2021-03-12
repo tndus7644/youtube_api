@@ -28,6 +28,8 @@ const request = async (method, url, data) => {
             config.data = data
         }
 
+        console.log('@@[Request Config]', config)
+
         const result = await youTubeApiInstance(config);
 
         return result?.data

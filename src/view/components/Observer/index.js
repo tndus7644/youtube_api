@@ -1,8 +1,5 @@
-import React, {useRef, useState, useCallback} from 'react';
+import React, {useRef, useCallback} from 'react';
 import styled from 'styled-components';
-import {useSelector} from "react-redux";
-import Sidebar from "../Sidebar/Sidebar";
-import VideoList from "../VideoList/VideoList";
 import {ContentContainer} from "../../../styled/Layout.Styled";
 
 const Observer = (props) => {
@@ -12,7 +9,7 @@ const Observer = (props) => {
         isLoading,
         hasMore,
         initilized,
-        onEnter = () => {}
+        onEnter
     } = props
 
     const observer = useRef();
@@ -28,9 +25,8 @@ const Observer = (props) => {
                 }
             })
         })
-
         if (node) observer.current.observe(node);
-    },  [isLoading, hasMore])
+    },  [isLoading, hasMore, onEnter])
 
     return (
         <Container className={"Observer"}>

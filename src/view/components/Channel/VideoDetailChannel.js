@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import GlobalButton from "../../../styled/Button.Styled";
 import cn from 'classnames';
-import {setSubscriberCount, tenThousandFormat, thousandNumberFormat} from "../../../lib/common";
+import {setSubscriberCount} from "../../../lib/common";
 
 const VideoDetailChannel = (props) => {
 
@@ -28,12 +28,12 @@ const VideoDetailChannel = (props) => {
                     <p><span>구독자</span>{setSubscriberCount(subscriberCount)}명</p>
                 </ChannelInfo>
             </ChannelContent>
-            <Desc>
+            <SubTitle>
                 <p className={cn({more})}>
                     {snippet?.description}
                 </p>
                 <Button onClick={handleClick}>{more ? "간략히" : "더보기"}</Button>
-            </Desc>
+            </SubTitle>
         </Container>
     )
 }
@@ -73,7 +73,7 @@ const ChannelInfo = styled.div`
   }
 `;
 
-const Desc = styled.div`
+const SubTitle = styled.div`
   p {
     font-size: 14px;
     max-width: 700px;

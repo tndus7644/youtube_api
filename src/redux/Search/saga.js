@@ -6,7 +6,11 @@ const saga = function* () {
     yield all([
         takeLatest(Action.Types.SEARCH_VIDEO, function* ({data}) {
             try {
-                const result = yield call(API.searchVideos, data)
+                const {searchResults} = yield select();
+                const result = yield call(API.searchVideos, {
+                    ...data,
+                    pageToken: searchResults?.nextPageToken
+                })
                 console.log("[saga searchVideo]", result)
                 if (result) {
                     yield put(Action.Creators.updateState({
@@ -20,13 +24,16 @@ const saga = function* () {
         takeLatest(Action.Types.SEARCH_VIDEO_MORE, function* ({data}) {
             try {
                 const prevVideos = yield select(state => state.search.searchResults)
-                const result = yield call(API.searchVideos, data)
+                const result = yield call(API.searchVideos, {
+                    ...data,
+                    pageToken: prevVideos?.nextPageToken
+                })
                 console.log("[saga searchMoreVideos]", result)
                 if (result) {
                     yield put(Action.Creators.updateState({
                         searchResults: {
-                            ...result,
                             ...prevVideos,
+                            ...result,
                             items:[
                                 ...prevVideos.items,
                                 ...result.items

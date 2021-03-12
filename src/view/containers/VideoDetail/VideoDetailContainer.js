@@ -13,30 +13,17 @@ const VideoDetailContainer = ({match}) => {
     const {detail, activities} = useSelector(state => state.video);
 
     useEffect(() => {
-        videoById();
-        getComments();
-        activitiesList();
-    }, [id])
-
-
-    const videoById = () => {
         videoActions.getVideoById({
             id,
             part: 'snippet,statistics'
         })
-    }
-
-    const getComments = () => {
         commentsActions.commentsList({
             part: 'snippet',
             videoId: id,
             maxResults: 10
         })
-    }
-
-    const activitiesList = () => {
         videoActions.getActivitiesVideos({})
-    }
+    }, [id])
 
     if (!detail) return null;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {FireSvg, HistorySvg, HomeSvg, MenuButtonSvg, StorageSvg, SubscribeSvg} from "../../svg";
+import {FireSvg, HistorySvg, HomeSvg, StorageSvg, SubscribeSvg} from "../../svg";
 import GlobalButton from "../../../styled/Button.Styled";
 import {useSelector} from "react-redux";
 import cn from 'classnames';

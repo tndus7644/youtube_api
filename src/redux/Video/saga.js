@@ -10,7 +10,11 @@ const saga = function* () {
                 yield put(Action.Creators.updateState({
                     isLoading: true
                 }))
-                const result = yield call(API.getVideos, data)
+                const {video} = yield select();
+                const result = yield call(API.getVideos, {
+                    ...data,
+                    pageToken: video?.list?.nextPageToken
+                })
                 console.log("[saga getVideos]", result)
                 const prevVideos = yield select(state => state.video.list);
                 if (result.items.length === 0) {

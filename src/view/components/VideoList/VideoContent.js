@@ -2,11 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
 import {useHistory} from "react-router";
+import {setSubscriberCount} from "../../../lib/common";
 
 const VideoContent = (props) => {
 
     const {
         snippet,
+        statistics,
         id,
         shape
     } = props
@@ -27,6 +29,8 @@ const VideoContent = (props) => {
         }
     }
 
+    const viewCount = statistics?.viewCount
+
     return (
         <Container className={cn(shape)} onClick={videoSrc}>
             <Thumb>
@@ -34,7 +38,7 @@ const VideoContent = (props) => {
             </Thumb>
             <Info>
                 <h3>{snippet?.title}</h3>
-                <p>조회수 1만 &#183; 1일전</p>
+                <p>조회수 {setSubscriberCount(viewCount)}&#183; 1일전</p>
                 <p><img src={snippet?.thumbnails?.default?.url} alt=""/>{snippet?.channelTitle}</p>
                 <span className={cn(shape)}>{snippet?.description}</span>
             </Info>
