@@ -3,14 +3,15 @@ import styled from 'styled-components';
 import {DotMenuRowSvg, HateSvg, LikesSvg, SaveSvg, SharingSvg} from "../../svg";
 import GlobalButton from "../../../styled/Button.Styled";
 import ChannelNav from "../Channel/VideoDetailChannel";
-import CommentsContainer from "../../containers/VideoDetail/CommentsContainer";
 import {thousandNumberFormat} from "../../../lib/common";
+import CommentsList from "../Comments/CommentsList";
 
 const VideoDetail = (props) => {
 
     const {
         id,
         statistics,
+        comments,
         snippet,
         channel
     } = props
@@ -41,7 +42,7 @@ const VideoDetail = (props) => {
                 </VideoInfo>
                 <ChannelNav channel={channel} snippet={snippet}/>
             </VideoContent>
-            <CommentsContainer id={id} commentCount={statistics?.commentCount}/>
+            <CommentsList statistics={statistics} comments={comments}/>
         </Container>
     )
 }

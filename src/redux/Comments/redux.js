@@ -2,7 +2,12 @@ import {createActions, createReducer} from "reduxsauce";
 
 const initialState = {
     comments:{
-        items:[]
+        items:[
+            {
+                snippet:{},
+                replies:{}
+            }
+        ]
     }
 }
 

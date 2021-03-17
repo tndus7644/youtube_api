@@ -1,16 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import ActivitiesListContent from "./ActivitiesListContent";
+import GridList from "../GridList";
 
 const ActivitiesList = ({activities}) => {
 
+    const renderItem = (item) => <ActivitiesListContent {...item}/>
+
     return (
         <Container>
-            {
-                activities.items.map((item, index) =>
-                    <ActivitiesListContent key={index} {...item}/>
-                )
-            }
+            <GridList data={activities.items}
+                      render={renderItem}
+            />
         </Container>
     )
 }

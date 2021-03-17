@@ -22,7 +22,7 @@ const VideoDetailChannel = (props) => {
     return (
         <Container>
             <ChannelContent>
-                <img src={channel?.snippet?.thumbnails?.default?.url} alt=""/>
+                <img className={"ChannelThumb"} src={channel?.snippet?.thumbnails?.default?.url} alt=""/>
                 <ChannelInfo>
                     <h3>{channel?.snippet?.localized?.title}</h3>
                     <p><span>구독자</span>{setSubscriberCount(subscriberCount)}명</p>
@@ -42,7 +42,7 @@ const Container = styled.div`
   margin: 10px 0;
   border-top: 1px solid #ddd;
 
-  img {
+  img.ChannelThumb {
     max-width: 48px;
     border-radius: 50%;
   }

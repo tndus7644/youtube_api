@@ -11,6 +11,8 @@ const VideoDetailContainer = ({match}) => {
     const id = match.params.id
 
     const {detail, activities} = useSelector(state => state.video);
+    const {comments} = useSelector(state => state.comments)
+
 
     useEffect(() => {
         videoActions.getVideoById({
@@ -18,9 +20,10 @@ const VideoDetailContainer = ({match}) => {
             part: 'snippet,statistics'
         })
         commentsActions.commentsList({
-            part: 'snippet',
+            part: 'snippet,replies',
             videoId: id,
-            maxResults: 10
+            maxResults: 14,
+            order:'relevance',
         })
         videoActions.getActivitiesVideos({})
     }, [id])
@@ -31,8 +34,9 @@ const VideoDetailContainer = ({match}) => {
         <Container className={"VideoDetailContainer"}>
             <VideoDetail id={id}
                          snippet={detail.video.items[0]?.snippet}
-                         statistics={detail.video.items[0]?.statistics}
                          channel={detail.channel.items[0]}
+                         statistics={detail.video.items[0]?.statistics}
+                         comments={comments}
             />
             <ActivitiesList activities={activities}/>
         </Container>

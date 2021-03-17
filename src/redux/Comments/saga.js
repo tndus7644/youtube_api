@@ -7,6 +7,7 @@ const saga = function* () {
         takeLatest(Action.Types.COMMENTS_LIST, function* ({data}) {
             try {
                 const result = yield call(API.getComments, data)
+                console.log("[saga getComments]", result)
                 if (result) {
                     yield put(Action.Creators.updateState({
                         comments: result

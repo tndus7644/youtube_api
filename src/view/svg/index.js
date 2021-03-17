@@ -226,3 +226,13 @@ export const LogoutSvg = () => {
         </svg>
     )
 }
+
+export const RepliesCommentsSvg = () => {
+    return(
+        <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" className="style-scope yt-icon">
+            <g className="style-scope yt-icon">
+                <path d="M7 10l5 5 5-5z" className="style-scope yt-icon"/>
+            </g>
+        </svg>
+    )
+}
